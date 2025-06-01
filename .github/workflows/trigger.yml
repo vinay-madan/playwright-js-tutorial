@@ -43,7 +43,7 @@ jobs:
     - name: Output results file
       run: |
         cat xray-report.xml
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       if: always()
       name: Store test results
       with:
@@ -63,3 +63,4 @@ jobs:
          testPlanKey: "${{ inputs.testPlanKey }}"
          projectKey: "${{ inputs.projectKey }}"
          testEnvironments: "NODE_${{ matrix.node-version }}"
+         testExecKey: ''
