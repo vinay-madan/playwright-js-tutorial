@@ -34,7 +34,7 @@ jobs:
         cache: 'npm'
     - run: |
         npm install
-        npm i -D @playwright/test
+        sudo npx playwright install-deps
         npx playwright install 
     - name: Run tests
       continue-on-error: true
