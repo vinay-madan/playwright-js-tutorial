@@ -54,8 +54,8 @@ jobs:
     - name: "Import results to Xray"
       uses: mikepenz/xray-action@v2.4.5
       with:
-         username: ${{ secrets.XRAY_CLIENT_ID }}
-         password: ${{ secrets.XRAY_CLIENT_SECRET }}
+         username: "0FF47AD5948A4D40BDC50B0CDF2155DF"
+         password: "43a77c5b8cbedbcc8f89c68ca038411f9dc1940c74c406a3767f7186301f4a1b"
          testFormat: "junit"
          testPaths: "**/xray-report.xml"
          projectKey: "${{ inputs.projectKey }}"
