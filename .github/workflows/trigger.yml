@@ -54,13 +54,12 @@ jobs:
     - name: "Import results to Xray"
       uses: mikepenz/xray-action@v2.4.5
       with:
-         username: ${{ secrets.JIRA_USERNAME }}
-         password: ${{ secrets.JIRA_PASSWORD }}
-         xrayCloud: "false"
-         xrayBaseUrl: ${{ secrets.JIRA_BASEURL }}
+         username: ${{ secrets.XRAY_CLIENT_ID }}
+         password: ${{ secrets.XRAY_CLIENT_SECRET }}
          testFormat: "junit"
          testPaths: "**/xray-report.xml"
-         testPlanKey: "${{ inputs.testPlanKey }}"
          projectKey: "${{ inputs.projectKey }}"
-         testEnvironments: "NODE_${{ matrix.node-version }}"
-         testExecKey: ''
+         testExecKey: ${{ inputs.testExecKey }}
+         testEnvironments: "QA"
+
+
