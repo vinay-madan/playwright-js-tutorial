@@ -3,8 +3,8 @@ name: CI
 on:
   workflow_dispatch:
     inputs:
-      testPlanKey:
-        description: 'TestPlan key from Xray'
+      testExecKey:
+        description: 'TestExec key from Xray'
         default: ''
         required: true
         type: string
