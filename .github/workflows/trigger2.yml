@@ -43,13 +43,13 @@ jobs:
           xray-report.xml
     - name: Get Xray Cloud API token
       env:
-        CLIENT_ID: ${{ secrets.CLIENT_ID }}
-        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        CLIENT_ID: ${{ secrets.XRAY_CLIENT_ID }}
+        CLIENT_SECRET: ${{ secrets.XRAY_CLIENT_SECRET }}
       id: xray-token
       shell: bash
       run: |
         echo  ::set-output name=XRAY_TOKEN::$(curl -H "Content-Type: application/json" -X POST --data "{ \"client_id\": 
-        \"$CLIENT_ID\",\"client_secret\": \"$CLIENT_SECRET\" }" https://xray.cloud.getxray.app/api/v1/authenticate| tr -d '"')
+        \"$XRAY_CLIENT_ID\",\"client_secret\": \"$XRAY_CLIENT_SECRET\" }" https://xray.cloud.getxray.app/api/v1/authenticate| tr -d '"')
     - name: "Import results to Xray"
       shell: bash
       run: 'curl -H "Content-Type: text/xml" -X POST -H "Authorization: Bearer ${{ steps.xray-token.outputs.XRAY_TOKEN }}" --data
