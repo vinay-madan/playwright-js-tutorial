@@ -2,17 +2,7 @@ name: CI(Xray Cloud AU)
 
 on:
   workflow_dispatch:
-    inputs:
-      testExecKey:
-        description: 'TestExec key from Xray'
-        default: ''
-        required: true
-        type: string
-      projectKey:
-        description: 'Project key from Xray'
-        default: ''
-        required: true
-        type: string
+
 jobs:
   build:
 
@@ -55,7 +45,6 @@ jobs:
       env:
         CLIENT_ID: ${{ secrets.CLIENT_ID }}
         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-        KEY:  ${{ inputs.testExecKey }}
       id: xray-token
       shell: bash
       run: |
